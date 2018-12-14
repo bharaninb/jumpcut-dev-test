@@ -1,5 +1,8 @@
 module.exports = {
   verbose: true,
+  transform: {
+    '^.+\\.js?$': 'babel-jest',
+  },
   collectCoverageFrom: [
     'src/**/*',
   ],
