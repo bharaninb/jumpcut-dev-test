@@ -1,6 +1,10 @@
 function* rangeSequence(start, step) {
-  yield start;
-  yield step;
+  let current = start;
+
+  while (true) {
+    yield current;
+    current += step;
+  }
 }
 
 export { rangeSequence };
