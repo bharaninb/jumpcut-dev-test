@@ -6,6 +6,10 @@ describe('Prime Sequence', () => {
       expect(isPrime(4)).toBe(false);
       expect(isPrime(13)).toBe(true);
     });
+
+    it('should return false for number 1', () => {
+      expect(isPrime(1)).toBe(false);
+    });
   });
 
   test('should be a generator function', () => {
