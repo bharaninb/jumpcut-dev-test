@@ -23,7 +23,5 @@ describe('Range Sequence', () => {
     expect(rangeGen.next().value).toBe(3);
     expect(rangeGen.next().value).toBe(5);
     expect(rangeGen.next().value).toBe(7);
-    expect(rangeGen.next().value).toBe(11);
-    expect(rangeGen.next().value).toBe(13);
   });
 });
