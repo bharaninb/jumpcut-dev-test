@@ -1,4 +1,3 @@
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,41 +20,25 @@ const styles = theme => ({
   },
 });
 
-class SequencerContent extends React.Component {
-  handleClick = () => {
-    const { handleNext, sequenceGen } = this.props;
-    handleNext(sequenceGen);
-  };
+const SequencerContent = ({ classes, sequenceValues }) => {
+  const valueItems = sequenceValues.map((value, index) => (
+    <Grid item key={uid(value, index)}>
+      <Paper className={classes.paper}>{value}</Paper>
+    </Grid>
+  ));
 
-  render() {
-    const { classes, sequenceValues } = this.props;
-
-    const valueItems = sequenceValues.map((value, index) => (
-      <Grid item key={uid(value, index)}>
-        <Paper className={classes.paper}>{value}</Paper>
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={24}>
+        {valueItems}
       </Grid>
-    ));
-
-    return (
-      <div className={classes.root}>
-        <Grid container spacing={24}>
-          {valueItems}
-          <Grid item xs={12} className={classes.button}>
-            <Button variant="contained" color="primary" size="large" onClick={this.handleClick} id="nextBtn">
-              Next
-            </Button>
-          </Grid>
-        </Grid>
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 SequencerContent.propTypes = {
   classes: PropTypes.shape().isRequired,
   sequenceValues: PropTypes.arrayOf(PropTypes.number).isRequired,
-  handleNext: PropTypes.func.isRequired,
-  sequenceGen: PropTypes.shape().isRequired,
 };
 
 export const SequencerContentComponent = withStyles(styles)(SequencerContent);

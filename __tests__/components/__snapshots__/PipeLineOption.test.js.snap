@@ -1,14 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SequencerContentComponent /> should match snapshot 1`] = `
+exports[`<PipelineOptionComponent /> should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <WithStyles(SequencerContent)
-    sequenceValues={
-      Array [
-        2,
-      ]
-    }
+  Symbol(enzyme.__unrendered__): <WithStyles(PipelineOption)
+    onChange={[MockFunction]}
+    pipelineOption="none"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -21,16 +18,15 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
       "classes": Object {
-        "button": "SequencerContent-button-3",
-        "paper": "SequencerContent-paper-2",
-        "root": "SequencerContent-root-1",
+        "formControl": "PipelineOption-formControl-2",
+        "group": "PipelineOption-group-3",
+        "root": "PipelineOption-root-1",
       },
-      "sequenceValues": Array [
-        2,
-      ],
+      "onChange": [MockFunction],
+      "pipelineOption": "none",
     },
     "ref": null,
     "rendered": null,
@@ -40,16 +36,15 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "classes": Object {
-          "button": "SequencerContent-button-3",
-          "paper": "SequencerContent-paper-2",
-          "root": "SequencerContent-root-1",
+          "formControl": "PipelineOption-formControl-2",
+          "group": "PipelineOption-group-3",
+          "root": "PipelineOption-root-1",
         },
-        "sequenceValues": Array [
-          2,
-        ],
+        "onChange": [MockFunction],
+        "pipelineOption": "none",
       },
       "ref": null,
       "rendered": null,

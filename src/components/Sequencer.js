@@ -3,32 +3,34 @@ import React from 'react';
 
 import { SequencerContentComponent } from './SequencerContent';
 import { SequencerTabsComponent } from './SequencerTabs';
+import { PipelineOptionComponent } from './PipelineOption';
+import { SequenceActionComponent } from './SequenceAction';
 
 class SequencerComponent extends React.Component {
-  componentDidMount() {
-    const { sequenceGen, selectSequence, selectedSequence } = this.props;
-    const isEmptyGen = Object.keys(sequenceGen).length === 0;
-    if (isEmptyGen) {
-      selectSequence(selectedSequence);
-    }
-  }
-
   render() {
     const {
-      selectedSequence,
-      sequenceValues,
+      appSequence,
       selectSequence,
-      sequenceGen,
       fetchNextSequenceValue,
+      selectPipeLine,
+      activateSequence,
     } = this.props;
 
     return (
       <main>
-        <SequencerTabsComponent selectedSequence={selectedSequence} onChange={selectSequence} />
-        <SequencerContentComponent
-          sequenceValues={sequenceValues}
-          sequenceGen={sequenceGen}
+        <SequencerTabsComponent
+          selectedSequence={appSequence.selectedSequence}
+          onChange={selectSequence}
+        />
+        <PipelineOptionComponent
+          pipelineOption={appSequence.pipelineOption}
+          onChange={selectPipeLine}
+        />
+        <SequencerContentComponent sequenceValues={appSequence.sequenceValues} />
+        <SequenceActionComponent
+          activateSequence={activateSequence}
           handleNext={fetchNextSequenceValue}
+          appSequence={appSequence}
         />
       </main>
     );
@@ -36,11 +38,11 @@ class SequencerComponent extends React.Component {
 }
 
 SequencerComponent.propTypes = {
-  selectedSequence: PropTypes.string.isRequired,
-  sequenceValues: PropTypes.arrayOf(PropTypes.number).isRequired,
+  appSequence: PropTypes.shape().isRequired,
   selectSequence: PropTypes.func.isRequired,
-  sequenceGen: PropTypes.shape().isRequired,
   fetchNextSequenceValue: PropTypes.func.isRequired,
+  selectPipeLine: PropTypes.func.isRequired,
+  activateSequence: PropTypes.func.isRequired,
 };
 
 export { SequencerComponent };

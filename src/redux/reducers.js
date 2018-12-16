@@ -1,11 +1,18 @@
 import { combineReducers } from 'redux';
 
-import { SELECT_SEQUENCE, SEQUENCE_NEXT_VALUE } from '../constants/redux';
+import {
+  SELECT_SEQUENCE,
+  SEQUENCE_NEXT_VALUE,
+  ACTIVATE_SEQUENCE,
+  SELECT_PIPELINE,
+} from '../constants/redux';
 
 const initialState = {
   selectedSequence: 'factorial',
   sequenceGen: {},
   sequenceValues: [],
+  isActive: false,
+  pipelineOption: 'none',
 };
 
 export const appSequence = (state = initialState, action) => {
@@ -14,14 +21,29 @@ export const appSequence = (state = initialState, action) => {
       return {
         ...state,
         selectedSequence: action.sequenceId,
-        sequenceGen: action.sequenceGen,
         sequenceValues: [],
+        isActive: false,
       };
 
     case SEQUENCE_NEXT_VALUE:
       return {
         ...state,
         sequenceValues: [...state.sequenceValues, action.nextValue],
+      };
+
+    case SELECT_PIPELINE:
+      return {
+        ...state,
+        sequenceValues: [],
+        isActive: false,
+        pipelineOption: action.pipelineOption,
+      };
+
+    case ACTIVATE_SEQUENCE:
+      return {
+        ...state,
+        isActive: true,
+        sequenceGen: action.sequenceGen,
       };
 
     default:
