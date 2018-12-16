@@ -1,5 +1,8 @@
 # Jumpcut Dev Test
 
+## Demo
+[Click here for demo](__specs__/demo.gif)
+
 ## Getting started
 
 - To start dev app
